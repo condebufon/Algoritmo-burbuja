@@ -1,0 +1,21 @@
+arreglo_num= [6,2,5,10,4,8,7,3,9,1]
+def quick_sort(arreglo_num):
+  if len (arreglo_num)<=1:
+    return arreglo_num
+  elif len (arreglo_num)==2:
+      if arreglo_num[0]>arreglo_num[1]:
+        return [arreglo_num[1],arreglo_num[0]]
+      return arreglo_num
+  pivot =arreglo_num[len(arreglo_num)//2]
+  menores = []
+  mayores = []
+  iguales = []
+  for i in arreglo_num:
+    if i==pivot:
+        iguales.append(i)
+    elif i < pivot:
+        menores.append(i)
+    else:
+        mayores.append(i)
+
+  return quick_sort(menores) + iguales + quick_sort(mayores)
